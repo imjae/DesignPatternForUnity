@@ -9,7 +9,7 @@ namespace Chapter.State
 
         public float CurrentSpeed { get; set; }
 
-        public Direction CurrentTurnDirection { get; set}
+        public Direction CurrentTurnDirection { get; set};
 
         private IBikeState _startState, _stopState, _turnState;
 
@@ -36,7 +36,7 @@ namespace Chapter.State
             _bikeStateContext.Transition(_stopState);
         }
 
-        public void Turn(CapsuleDirection2D direction)
+        public void Turn(Direction direction)
         {
             CurrentTurnDirection = direction;
             _bikeStateContext.Transition(_turnState);

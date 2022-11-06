@@ -9,7 +9,7 @@ namespace Chapter.State
 
         public float CurrentSpeed { get; set; }
 
-        public Direction CurrentTurnDirection { get; set};
+        public Direction CurrentTurnDirection { get; set; }
 
         private IBikeState _startState, _stopState, _turnState;
 

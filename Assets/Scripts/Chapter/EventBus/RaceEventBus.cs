@@ -22,5 +22,25 @@ namespace Chapter.EventBus
                 Events.Add(eventType, thisEvent);
             }
         }
+
+        public static void Unsubscribe(RaceEventType type, UnityAction listener)
+        {
+            UnityEvent thisEvent;
+
+            if (Events.TryGetValue(type, out thisEvent))
+            {
+                thisEvent.RemoveListener(listener);
+            }
+        }
+
+        public static void Publish(RaceEventType type)
+        {
+            UnityEvent thisEvent;
+
+            if (Events.TryGetValue(type, out thisEvent))
+            {
+                thisEvent.Invoke();
+            }
+        }
     }
 }
